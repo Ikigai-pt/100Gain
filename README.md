@@ -1,2 +1,2 @@
 # 100Gain
-python - Stock ML/AI
+python - Stock ML/AI earn $100 every day
