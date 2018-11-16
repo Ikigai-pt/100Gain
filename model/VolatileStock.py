@@ -1,7 +1,8 @@
 from sqlalchemy import Column, String, Date, Integer, Numeric
 from sqlalchemy.dialects.postgresql import UUID
-from common.base import Base, session_factory
+from db.base import Base, session_factory
 import uuid
+
 class VolatileStock(Base):
     __tablename__ = 'VolatileStock'
     uuid = Column(UUID(as_uuid=True), nullable=False)
