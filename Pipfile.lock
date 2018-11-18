@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2520a6c2762b5f74eb4ef9cf35d63af002f6683dab255dbf18f0163159e1e82d"
+            "sha256": "beb474950614ba30db6a0854679085c83966a1d23ce2975fe679e63a5916058d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -66,6 +66,14 @@
                 "sha256:684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
             ],
             "version": "==2.7"
+        },
+        "iexfinance": {
+            "hashes": [
+                "sha256:e68e79f1cdcd6170eb36eecd8b9d37f8a4a33c48953a66c2548c423b0171618c",
+                "sha256:f15e9568b81e32b0e777fa75a7d57875022554a0c69b91a7b703619fb3153354"
+            ],
+            "index": "pypi",
+            "version": "==0.3.4"
         },
         "kombu": {
             "hashes": [

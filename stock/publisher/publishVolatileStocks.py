@@ -1,7 +1,7 @@
 import pandas_datareader.data as web
 from bs4 import BeautifulSoup
 import requests
-from .tasks.get_stock import stockInfo
+from stock.tasks.recordVolatileStock import stockInfo
 losers_url= "https://finance.yahoo.com/losers?offset=0&count=100"
 
 def gatherStocks(category):

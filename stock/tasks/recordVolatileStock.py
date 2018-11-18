@@ -1,5 +1,6 @@
-from stock.StockService import fetchStock
-from stock.App import app
+from stock.service.StockService import fetchStock
+from datetime import date
+from App import app
 from model.VolatileStock import VolatileStock
 
 @app.task
@@ -7,12 +8,9 @@ def stockInfo(symbol, category):
     stock = fetchStock(symbol)
     if stock is not None:
         vStock = VolatileStock(
-                stock['symbol'],
-                stock[ 'symbol' ],
-                stock[ 'price' ],
-                get_change(float(stock['price']), float(stock['previousPrice'])),
                 category,
-                stock[ 'updatedAt' ])
+                date.today())
+        vStock.addStock(stock)
         vStock.saveStock()
 
 def get_change(current, previous):

@@ -7,10 +7,15 @@ class VolatileStock(Base):
     __tablename__ = 'VolatileStock'
     uuid = Column(UUID(as_uuid=True), nullable=False)
     name = Column(String, primary_key=True)
+    category = Column(String)
     symbol = Column(String)
     price = Column(Numeric)
+    avgVolume = Column(Numeric)
     change = Column(Numeric)
-    category = Column(String)
+    changePercent = Column(Numeric)
+    marketCap = Column(Numeric)
+    week52High = Column(Numeric)
+    week52Low = Column(Numeric)
     reportedDate = Column(Date)
 
     def saveStock(self):
@@ -22,16 +27,19 @@ class VolatileStock(Base):
             existingStock.price = self.price
             existingStock.reportedDate = self.reportedDate
             existingStock.category = self.category
+            existingStock.change = self.change
+            existingStock.changePercent = self.changePercent
             session.merge(existingStock)
         session.commit()
         session.close()
 
-    def __init__(self, name=None, symbol=None, price=0.0, change=0.0, category=None, reportedDate=None):
+    def addStock(self, stock):
+        for key, value in stock.items():
+            print(value)
+            setattr(self, key, value)
+
+    def __init__(self, category, reportedDate):
         self.uuid = uuid.uuid4()
-        self.name = name
-        self.symbol = symbol
-        self.price = price
-        self.change = change
         self.category = category
         self.reportedDate = reportedDate
 

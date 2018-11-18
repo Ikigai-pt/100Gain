@@ -1,6 +1,6 @@
 ### how to execute
-- Worker : open terminal
-pipenv run celery -A stock.tasks.get_stock worker --loglevel=info
+- Worker : open terminal `pipenv shell`
+pipenv run celery -A stock.tasks.recordVolatileStock worker --loglevel=info
 
 - Main app
-pipenv run python -m stock.stockGatherer
+pipenv run python -m stock.publisher.publishVolatileStocks

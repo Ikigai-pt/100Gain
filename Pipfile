@@ -9,6 +9,7 @@ sqlalchemy = "*"
 celery = "*"
 pandas-datareader = "*"
 beautifulsoup4 = "*"
+iexfinance = "*"
 
 [dev-packages]
 
