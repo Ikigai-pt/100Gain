@@ -10,7 +10,7 @@ celery = "*"
 pandas-datareader = "*"
 beautifulsoup4 = "*"
 iexfinance = "*"
-
+xlrd = "*"
 [dev-packages]
 
 [requires]

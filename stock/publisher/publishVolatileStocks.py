@@ -1,7 +1,8 @@
 import pandas_datareader.data as web
 from bs4 import BeautifulSoup
 import requests
-from stock.tasks.recordVolatileStock import stockInfo
+from celery import chain
+from stock.tasks.manageStock import stockInfo, registerStock
 losers_url= "https://finance.yahoo.com/losers?offset=0&count=100"
 
 def gatherStocks(category):
@@ -9,14 +10,19 @@ def gatherStocks(category):
     r  = requests.get(base_url)
     data = r.text
     soup = BeautifulSoup(data,"html.parser")
+    count = 0
     for row in soup.find_all('td'):
         link = row.a
-        if link is not None:
+        # if link is not None and count < 1:
+        if link is not None :
             symbol = link['href'].split('=')[1]
-            stockInfo.delay(symbol,category)
+            result = stockInfo.delay(symbol,category)
+            registered = registerStock.delay(result.get(),category)
+            print('result')
+            print(registered.get())
+            count = 1
 
 if __name__ == '__main__':
-    print("Top Gainers")
-    gatherStocks('gainers')
-    print("Top Losers")
-    gatherStocks('losers')
+    print("Top Gainers/Losers")
+    gatherStocks('Gainers')
+    gatherStocks('Losers')

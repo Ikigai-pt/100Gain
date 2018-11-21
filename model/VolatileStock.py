@@ -35,11 +35,9 @@ class VolatileStock(Base):
 
     def addStock(self, stock):
         for key, value in stock.items():
-            print(value)
             setattr(self, key, value)
 
     def __init__(self, category, reportedDate):
         self.uuid = uuid.uuid4()
         self.category = category
         self.reportedDate = reportedDate
-

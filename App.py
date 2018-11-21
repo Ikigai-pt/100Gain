@@ -1,6 +1,6 @@
 from config import celeryconfig
 from celery import Celery
-APP_NAME = 'stocks'
+APP_NAME = '100Gain'
 
 try:
     app = Celery(APP_NAME)
