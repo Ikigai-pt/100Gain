@@ -11,7 +11,10 @@ pandas-datareader = "*"
 beautifulsoup4 = "*"
 iexfinance = "*"
 xlrd = "*"
+flask = "*"
+
 [dev-packages]
+pbr = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,5 +1,3 @@
-# from App import app as celery_app
-# __all__ = ['celery_app']
 from flask import Flask, make_response
 app = Flask(__name__)
 @app.route("/")
@@ -13,4 +11,3 @@ def hello():
 
 if __name__ == "__main__":
     app.run()
-

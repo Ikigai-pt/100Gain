@@ -5,6 +5,11 @@ __pycache__/
 celerybeat-schedule
 # Environments
 .env
+#Build
+build/
+.eggs/
+dist/
+
 .venv
 env/
 venv/

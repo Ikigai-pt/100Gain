@@ -1,0 +1,12 @@
+CHANGES
+=======
+
+v0.1
+----
+
+* added celery job and cron setup
+* added iexfinance lib
+* crude rule engine impl
+* inital commit
+* inital commit
+* Create README.md
